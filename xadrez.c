@@ -6,27 +6,49 @@
 
 int main() {
     // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    // Definição das constantes de movimento para cada peça
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    const int MOVIMENTO_TORRE = 5;
+    const int MOVIMENTO_BISPO = 5;
+    const int MOVIMENTO_RAINHA = 8;
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    // --- Implementação da TORRE ---
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    // Movimento: 5 casas para a Direita.
+    // Estrutura escolhida: FOR (ideal quando o número de repetições é fixo e conhecido).
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    printf("Movimentação da Torre:\n");
+    for (int i = 1; i <= MOVIMENTO_TORRE; i++) {
+        printf("Direita\n");
+    }
+    printf("\n"); 
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // --- Implementação do BISPO ---
+
+    // Movimento: 5 casas na Diagonal (Cima e Direita).
+    // Estrutura escolhida: WHILE (executa enquanto a condição for verdadeira).
+
+    printf("Movimentação do Bispo:\n");
+    int b = 1;
+    while (b <= MOVIMENTO_BISPO) {
+        printf("Cima Direita\n");
+        b++; 
+    }
+    printf("\n");
+
+    // --- Implementação da RAINHA ---
+
+    // Movimento: 8 casas para a Esquerda.
+    // Estrutura escolhida: DO-WHILE (garante que o movimento ocorra pelo menos uma vez).
+
+    printf("Movimentação da Rainha:\n");
+    int r = 1;
+    do {
+        printf("Esquerda\n");
+        r++;
+    } while (r <= MOVIMENTO_RAINHA);
+    printf("\n");
 
     return 0;
 }
