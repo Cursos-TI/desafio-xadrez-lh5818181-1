@@ -4,50 +4,64 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-int main() {
-    // Nível Novato - Movimentação das Peças
 
-    // Definição das constantes de movimento para cada peça
+// --- Funções Recursivas para Movimentação ---
 
-    const int MOVIMENTO_TORRE = 5;  
-    const int MOVIMENTO_BISPO = 5;
-    const int MOVIMENTO_RAINHA = 8;
-
-    // --- Implementação da TORRE ---
-
-    // Movimento: 5 casas para a Direita.
-    // Estrutura escolhida: FOR (ideal quando o número de repetições é fixo e conhecido).
-
-    printf("Movimentação da Torre:\n");
-    for (int i = 1; i <= MOVIMENTO_TORRE; i++) {
+// Função recursiva para a Torre: Move n casas para a Direita
+void moverTorre(int casas) {
+    if (casas > 0) {
         printf("Direita\n");
+        moverTorre(casas - 1); // Chamada recursiva diminuindo o contador
     }
-    printf("\n"); 
+}
 
-    // --- Implementação do BISPO ---
+// Função recursiva para a Rainha: Move n casas para a Esquerda
+void moverRainha(int casas) {
+    if (casas > 0) {
+        printf("Esquerda\n");
+        moverRainha(casas - 1);
+    }
+}
 
-    // Movimento: 5 casas na Diagonal (Cima e Direita).
-    // Estrutura escolhida: WHILE (executa enquanto a condição for verdadeira).
+// Função recursiva para o Bispo (Parte do desafio Mestre)
+// Simula o movimento diagonal usando recursão para a repetição
+void moverBispoRecursivo(int casas) {
+    if (casas > 0) {
+        // O desafio pede loops aninhados no Bispo também (implementado no main)
+        // Esta função cumpre o requisito de recursividade para as peças principais
+        printf("Cima\n");
+        printf("Direita\n");
+        moverBispoRecursivo(casas - 1);
+    }
+}
 
+int main() {
+    // Definição das constantes
+    const int MOV_TORRE = 5;
+    const int MOV_BISPO = 5;
+    const int MOV_RAINHA = 8;
+
+    // --- Implementação da TORRE (Recursiva) ---
+    printf("Movimentação da Torre:\n");
+    moverTorre(MOV_TORRE);
+    printf("\n");
+
+    // --- Implementação do BISPO (Recursiva + Loops Aninhados) ---
     printf("Movimentação do Bispo:\n");
-    int b = 1;
-    while (b <= MOVIMENTO_BISPO) {
-        printf("Cima Direita\n");
-        b++; 
+    // Usando loops aninhados conforme requisito: externo vertical, interno horizontal
+    for (int i = 0; i < MOV_BISPO; i++) {
+        int j = 0;
+        while (j < 1) {
+            printf("Cima\n");
+            j++;
+        }
+        printf("Direita\n");
     }
     printf("\n");
 
-    // --- Implementação da RAINHA ---
-
-    // Movimento: 8 casas para a Esquerda.
-    // Estrutura escolhida: DO-WHILE (garante que o movimento ocorra pelo menos uma vez).
-
+    // --- Implementação da RAINHA (Recursiva) ---
     printf("Movimentação da Rainha:\n");
-    int r = 1;
-    do {
-        printf("Esquerda\n");
-        r++;
-    } while (r <= MOVIMENTO_RAINHA);
+    moverRainha(MOV_RAINHA);
     printf("\n");
 
     // --- Implementação do CAVALO ---
