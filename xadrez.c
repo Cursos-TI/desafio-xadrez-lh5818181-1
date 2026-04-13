@@ -9,7 +9,7 @@ int main() {
 
     // Definição das constantes de movimento para cada peça
 
-    const int MOVIMENTO_TORRE = 5;
+    const int MOVIMENTO_TORRE = 5;  
     const int MOVIMENTO_BISPO = 5;
     const int MOVIMENTO_RAINHA = 8;
 
@@ -49,6 +49,31 @@ int main() {
         r++;
     } while (r <= MOVIMENTO_RAINHA);
     printf("\n");
+
+    // --- Implementação do CAVALO ---
+
+    // O Cavalo se move em "L": 2 casas para Baixo e 1 para a Esquerda.
+    // Utilizei loops aninhados para representar essa composição de movimento.
+    
+    printf("Movimentação do Cavalo:\n");
+
+    // Loop externo (FOR): Gerencia a parte vertical (2 casas para baixo)
+    for (int vertical = 1; vertical <= 1; vertical++) {
+        
+        // Loop interno (WHILE): Executa as casas para baixo
+        int baixo = 1;
+        while (baixo <= 2) {
+            printf("Baixo\n");
+            baixo++;
+        }
+        
+        // Após as duas casas para baixo, completa o "L" movendo para a esquerda
+        int esquerda = 1;
+        while (esquerda <= 1) {
+            printf("Esquerda\n");
+            esquerda++;
+        }
+    }
 
     return 0;
 }
